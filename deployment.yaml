@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpp-web
+  name: task-manager
 spec:
   replicas: 2
+
   selector:
     matchLabels:
-      app: cpp-web
+      app: task-manager
+
   template:
     metadata:
       labels:
-        app: cpp-web
+        app: task-manager
+
     spec:
       containers:
-      - name: cpp-web
-        image: cpp-web:v1
+      - name: task-manager
+        image: task-manager:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
